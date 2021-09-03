@@ -6,10 +6,42 @@ import Software from './pages/Software'
 import Media from './pages/Media'
 import Food from './pages/Food'
 
+import axios from 'axios'
+import { BASE_URL } from './globals'
+import { useEffect, useState } from 'react'
+
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css'
 
 function App() {
+  const [threads, setThreadMain] = useState([])
+  const [newThread, setNewThread] = useState({
+    title: '',
+    content: ''
+  })
+
+  useEffect(() => {
+    async function getThreads() {
+      const res = await axios.get(`${BASE_URL}/mainposts`)
+      setThreadMain(res.data)
+    }
+    getThreads()
+  }, [])
+
+  const addThread = (e) => {
+    e.preventDefault()
+    const currentThreads = threads
+    const addedThread = { ...newThread }
+    currentThreads.push(addedThread)
+    setThreadMain(currentThreads)
+    setNewThread({ title: '', content: '' })
+  }
+
+  const handleChange = (e) => {
+    console.log(e.target)
+    setNewThread({ ...newThread, [e.target.title]: e.target.value })
+  }
+
   return (
     <div className="App">
       <header>
@@ -18,7 +50,18 @@ function App() {
       <main>
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route exact path="/gaming" component={Gaming} />
+          <Route
+            exact
+            path="/gaming"
+            render={(props) => (
+              <Gaming
+                {...props}
+                newThread={newThread}
+                handleChange={handleChange}
+                addThread={addThread}
+              />
+            )}
+          />
           <Route exact path="/software" component={Software} />
           <Route exact path="/media" component={Media} />
           <Route exact path="/food" component={Food} />
