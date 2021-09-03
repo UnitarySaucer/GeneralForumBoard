@@ -1,6 +1,10 @@
 import { Route, Switch } from 'react-router-dom'
 import NavBar from './components/NavBar'
 import Home from './pages/Home'
+import Gaming from './pages/Gaming'
+import Software from './pages/Software'
+import Media from './pages/Media'
+import Food from './pages/Food'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './App.css'
@@ -14,10 +18,10 @@ function App() {
       <main>
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route exact path="/gaming" component={Home} />
-          <Route exact path="/software" component={Home} />
-          <Route exact path="/media" component={Home} />
-          <Route exact path="/food" component={Home} />
+          <Route exact path="/gaming" component={Gaming} />
+          <Route exact path="/software" component={Software} />
+          <Route exact path="/media" component={Media} />
+          <Route exact path="/food" component={Food} />
         </Switch>
       </main>
     </div>
