@@ -1,40 +1,13 @@
 import Threads from '../components/Threads'
-import axios from 'axios'
-import { BASE_URL } from '../globals'
+// import axios from 'axios'
+// import { BASE_URL } from '../globals'
+// import { useEffect, useState } from 'react'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Card from 'react-bootstrap/Card'
 import ThreadForm from '../components/ThreadForm'
-import { useEffect, useState } from 'react'
 
-function Gaming() {
-  const [threads, setThreadMain] = useState([])
-  const [newThread, setNewThread] = useState({
-    title: '',
-    content: ''
-  })
-
-  useEffect(() => {
-    async function getThreads() {
-      const res = await axios.get(`${BASE_URL}/mainposts`)
-      setThreadMain(res.data)
-    }
-    getThreads()
-  }, [])
-
-  const addThread = (e) => {
-    e.preventDefault()
-    const currentThreads = threads
-    const addedThread = { ...newThread }
-    currentThreads.push(addedThread)
-    setThreadMain(currentThreads)
-    setNewThread({ title: '', content: '' })
-  }
-
-  const handleChange = (e) => {
-    setNewThread({ ...newThread, [e.target.title]: e.target.value })
-  }
-
+function Gaming(props) {
   return (
     <div className="App">
       <div className="cont">
@@ -47,9 +20,10 @@ function Gaming() {
       </div>
       <div className="cont">
         <ThreadForm
-          newThread={newThread}
-          handleChange={handleChange}
-          addThread={addThread}
+          {...props}
+          handleChange={props.handleChange}
+          newThread={props.newThread}
+          addThread={props.addThread}
         />
       </div>
     </div>
