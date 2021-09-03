@@ -4,7 +4,7 @@ require('dotenv').config() // Add this line
 let dbUrl =
   process.env.NODE_ENV === 'production'
     ? process.env.MONGODB_URI
-    : 'mongodb+srv://unitarysaucer:Forum123@forum.y1zs7.mongodb.net/Forum?retryWrites=true&w=majority'
+    : 'mongodb://127.0.0.1:27017/Forum'
 
 mongoose
   .connect(dbUrl, {
