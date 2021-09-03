@@ -48,10 +48,20 @@ const createReply = async (req, res) => {
   }
 }
 
+const deleteReply = async (req, res) => {
+  try {
+    const deleted = await Reply.deleteOne({ ObjectId: req.params })
+    res.status(200).json({ deleted })
+  } catch (error) {
+    res.status(404).json({ message: error.message })
+  }
+}
+
 module.exports = {
   getAllMain,
   createMain,
   deleteMain,
   getAllReplies,
-  createReply
+  createReply,
+  deleteReply
 }
