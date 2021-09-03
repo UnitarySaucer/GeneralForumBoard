@@ -8,6 +8,6 @@ router.delete('/delete/:id', controllers.deleteMain)
 
 router.get('/replies', controllers.getAllReplies)
 router.post('/reply', controllers.createReply)
-// router.post('/delete/:id', controllers.deleteReply)
+router.post('/delete_reply/:id', controllers.deleteReply)
 
 module.exports = router
