@@ -1,8 +1,7 @@
 const { Router } = require('express')
-const ExampleRouter = require('./ExampleRouter')
-
+const router = require('./Routers')
 const AppRouter = Router()
 
-AppRouter.use('/examples', ExampleRouter)
+AppRouter.use('/forum', router)
 
 module.exports = AppRouter
