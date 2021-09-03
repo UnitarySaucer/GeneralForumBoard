@@ -1,15 +1,16 @@
-import Categories from '../components/Categories'
+// import Categories from '../components/Categories'
+import Threads from '../components/Threads'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 
-function Home() {
+function Gaming() {
   return (
     <div className="App">
       <div className="cont">
-        <Categories />
+        <Threads />
       </div>
     </div>
   )
 }
 
-export default Home
+export default Gaming

@@ -2,7 +2,7 @@ import Categories from '../components/Categories'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
 
-function Home() {
+function Media() {
   return (
     <div className="App">
       <div className="cont">
@@ -12,4 +12,4 @@ function Home() {
   )
 }
 
-export default Home
+export default Media
