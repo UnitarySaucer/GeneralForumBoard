@@ -19,6 +19,7 @@ A general use forum board that will be for many topics. No account will be neede
 ![](https://upload.wikimedia.org/wikipedia/commons/9/94/MERN-logo.png)
 
 MERN Stack:
+
 - MongoDB
 - Express
 - React
@@ -28,14 +29,16 @@ MERN Stack:
 
 ## Getting Started
 
-The website will have the home screen which will have multiple sections for different topics. Within each topic section there will be different categories that are related to the main topic. The user will be able to go into any site they choose and will be able to create a thread, reply to an existing one, or just read them. 
+The website will have the home screen which will have multiple sections for different topics. Within each topic section there will be different categories that are related to the main topic. The user will be able to go into any site they choose and will be able to create a thread, reply to an existing one, or just read them.
 
 ---
 
 ## Trello
 
-You can check the progress on the game by clicking here: [Trello](https://trello.com/b/BWLspMNB/general-forum-board)
+You can check the progress on the website by clicking here: [Trello](https://trello.com/b/BWLspMNB/general-forum-board)
 
 ---
 
 ## Credits
+
+**UI Library:** [React-Bootstrap](https://react-bootstrap.netlify.app/)
