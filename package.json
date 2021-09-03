@@ -5,7 +5,8 @@
   "license": "MIT",
   "scripts": {
     "start": "node app.js",
-    "dev": "nodemon app.js"
+    "dev": "nodemon app.js",
+    "build": "cd client && rm -rf build && npm install && npm run build"
   },
   "dependencies": {
     "axios": "^0.21.1",
