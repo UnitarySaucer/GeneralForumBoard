@@ -18,14 +18,14 @@ function Gaming(props) {
           </Card>
         </div>
       </div>
-      <div className="cont">
+      <form className="cont">
         <ThreadForm
           {...props}
           handleChange={props.handleChange}
           newThread={props.newThread}
           addThread={props.addThread}
         />
-      </div>
+      </form>
     </div>
   )
 }
