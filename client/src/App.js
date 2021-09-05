@@ -7,7 +7,7 @@ import Media from './pages/Media'
 import Food from './pages/Food'
 
 import axios from 'axios'
-import { BASE_URL } from './globals'
+import { BASE_URL, POST_MAIN } from './globals'
 import { useEffect, useState } from 'react'
 
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -30,16 +30,17 @@ function App() {
 
   const addThread = (e) => {
     e.preventDefault()
-    const currentThreads = threads
-    const addedThread = { ...newThread }
-    currentThreads.push(addedThread)
-    setThreadMain(currentThreads)
+    threads.push(newThread)
+    axios.post(`${POST_MAIN}`, {
+      title: newThread.title,
+      content: newThread.content
+    })
+    setThreadMain(threads)
     setNewThread({ title: '', content: '' })
   }
 
   const handleChange = (e) => {
-    console.log(e.target)
-    setNewThread({ ...newThread, [e.target.title]: e.target.value })
+    setNewThread({ ...newThread, [e.target.name]: e.target.value })
   }
 
   return (
@@ -51,7 +52,6 @@ function App() {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route
-            exact
             path="/gaming"
             render={(props) => (
               <Gaming
