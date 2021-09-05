@@ -9,14 +9,16 @@ function ThreadForm(props) {
 
   return (
     <div className="catCont">
-      <form onSubmit={handleSubmit}>
+      <form>
         <Form>
           <Form.Group>
             <Form.Control
               type="text"
               placeholder="Enter Title"
-              value={props.newThread.title}
+              defaultValue={props.newThread.title}
               onChange={props.handleChange}
+              name="title"
+              className="input"
             />
           </Form.Group>
           <Form.Group>
@@ -24,11 +26,15 @@ function ThreadForm(props) {
               as="textarea"
               placeholder="Content Here"
               style={{ height: '20vh' }}
-              value={props.newThread.content}
+              defaultValue={props.newThread.content}
               onChange={props.handleChange}
+              name="content"
+              className="input"
             />
           </Form.Group>
-          <Button type="submit">Submit</Button>
+          <Button type="submit" onClick={handleSubmit}>
+            Submit
+          </Button>
         </Form>
       </form>
     </div>
