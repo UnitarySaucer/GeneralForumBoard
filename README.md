@@ -33,9 +33,23 @@ The website will have the home screen which will have multiple sections for diff
 
 ---
 
+## Futute Updates
+- Get replies to only show up on the pain post that it was added to
+- Make website refresh after submitting a new thread or reply
+
+---
+
 ## Trello
 
 You can check the progress on the website by clicking here: [Trello](https://trello.com/b/BWLspMNB/general-forum-board)
+
+---
+
+## Screenshots
+
+![](Home.png)
+
+![](Threads.png)
 
 ---
 

@@ -28,6 +28,7 @@ function MainPost(props) {
   const deleteMain = async (e) => {
     e.preventDefault()
     await axios.delete(`${BASE_URL}/delete/${props.match.params.id}`)
+    props.history.push('/gaming')
   }
 
   return (
