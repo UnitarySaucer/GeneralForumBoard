@@ -51,10 +51,6 @@ function App() {
     setNewReply({ content: '' })
   }
 
-  const deleteMain = (e) => {
-    e.preventDefault()
-  }
-
   const handleChange = (e) => {
     setNewThread({ ...newThread, [e.target.name]: e.target.value })
   }

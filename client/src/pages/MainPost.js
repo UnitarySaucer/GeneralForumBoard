@@ -25,9 +25,14 @@ function MainPost(props) {
     getReplies()
   }, [])
 
+  const deleteMain = async (e) => {
+    e.preventDefault()
+    await axios.delete(`${BASE_URL}/delete/${props.match.params.id}`)
+  }
+
   return (
     <div>
-      <Button type="button" onClick={props.deleteMain}>
+      <Button type="button" onClick={deleteMain}>
         Delete
       </Button>
       <h1>{main.title}</h1>
