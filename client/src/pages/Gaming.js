@@ -14,7 +14,7 @@ function Gaming(props) {
         <div className="catCont">
           <Card>
             <Card.Header as="h3">Threads</Card.Header>
-            <Threads />
+            <Threads {...props} />
           </Card>
         </div>
       </div>

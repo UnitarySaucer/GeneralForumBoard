@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 import Nav from 'react-bootstrap/Nav'
 import { BASE_URL } from '../globals'
 
-function Threads() {
+function Threads(props) {
   const [threadMain, setThreadMain] = useState([])
 
   useEffect(() => {
@@ -19,10 +19,9 @@ function Threads() {
     <div>
       {threadMain.map((thread) => {
         return (
-          <Nav.Link
-            className="topics"
-            href={`/${thread._id}`}
-          >{`${thread.title}`}</Nav.Link>
+          <Nav.Link className="topics" href={`/gaming/${thread._id}`}>
+            {`${thread.title}`}
+          </Nav.Link>
         )
       })}
     </div>

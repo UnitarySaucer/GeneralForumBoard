@@ -3,7 +3,15 @@ const { Main, Reply, Thread } = require('../models/index')
 const getAllMain = async (req, res) => {
   try {
     const mainPosts = await Main.find()
-    // console.log(mainPosts)
+    res.status(200).json(mainPosts)
+  } catch (error) {
+    res.status(404).json({ message: error.message })
+  }
+}
+
+const getMain = async (req, res) => {
+  try {
+    const mainPosts = await Main.find({ _id: req.params.id })
     res.status(200).json(mainPosts)
   } catch (error) {
     res.status(404).json({ message: error.message })
@@ -59,6 +67,7 @@ const deleteReply = async (req, res) => {
 
 module.exports = {
   getAllMain,
+  getMain,
   createMain,
   deleteMain,
   getAllReplies,

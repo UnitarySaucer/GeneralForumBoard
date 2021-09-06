@@ -2,9 +2,7 @@ import { Route, Switch } from 'react-router-dom'
 import NavBar from './components/NavBar'
 import Home from './pages/Home'
 import Gaming from './pages/Gaming'
-import Software from './pages/Software'
-import Media from './pages/Media'
-import Food from './pages/Food'
+import MainPost from './pages/MainPost'
 
 import axios from 'axios'
 import { BASE_URL, POST_MAIN } from './globals'
@@ -15,8 +13,12 @@ import './App.css'
 
 function App() {
   const [threads, setThreadMain] = useState([])
+  const [replies, setNewReplies] = useState([])
   const [newThread, setNewThread] = useState({
     title: '',
+    content: ''
+  })
+  const [newReply, setNewReply] = useState({
     content: ''
   })
 
@@ -39,8 +41,26 @@ function App() {
     setNewThread({ title: '', content: '' })
   }
 
+  const addReply = (e) => {
+    e.preventDefault()
+    replies.push(newReply)
+    axios.post(`${BASE_URL}/reply`, {
+      content: newReply.content
+    })
+    setNewReplies(replies)
+    setNewReply({ content: '' })
+  }
+
+  const deleteMain = (e) => {
+    e.preventDefault()
+  }
+
   const handleChange = (e) => {
     setNewThread({ ...newThread, [e.target.name]: e.target.value })
+  }
+
+  const handleReplyChange = (e) => {
+    setNewReply({ ...newReply, [e.target.name]: e.target.value })
   }
 
   return (
@@ -52,6 +72,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route
+            exact
             path="/gaming"
             render={(props) => (
               <Gaming
@@ -62,9 +83,18 @@ function App() {
               />
             )}
           />
-          <Route exact path="/software" component={Software} />
-          <Route exact path="/media" component={Media} />
-          <Route exact path="/food" component={Food} />
+          <Route
+            exact
+            path="/gaming/:id"
+            render={(props) => (
+              <MainPost
+                {...props}
+                newReply={newReply}
+                handleReplyChange={handleReplyChange}
+                addReply={addReply}
+              />
+            )}
+          />
         </Switch>
       </main>
     </div>
